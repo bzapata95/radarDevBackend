@@ -1,5 +1,6 @@
 const express = require("express");
 const mongosse = require("mongoose");
+const cors = require("cors");
 
 const routes = require("./routes");
 
@@ -15,6 +16,7 @@ mongosse.connect(
   }
 );
 
+app.use(cors());
 // Para que entienda el servidor que estamos trabajando con JSON
 app.use(express.json());
 app.use(routes);

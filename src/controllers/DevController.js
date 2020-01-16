@@ -43,7 +43,7 @@ module.exports = {
   },
 
   async update(request, response) {
-    const { name, bio, latitude, longitude, techs } = request.body;
+    const { latitude, longitude, techs } = request.body;
     const { _id } = request.params;
 
     const techsArray = parseStringAsArray(techs);
@@ -55,8 +55,6 @@ module.exports = {
     await Dev.findByIdAndUpdate(
       { _id },
       {
-        name,
-        bio,
         techs: techsArray,
         location
       },
